@@ -11,4 +11,4 @@ PGDATABASE=nc_news
 and a second file:
 .env.test  
 with the text:  
-PGDATABASE=nc_test
+PGDATABASE=nc_news_test
