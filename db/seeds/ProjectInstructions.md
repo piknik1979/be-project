@@ -62,9 +62,9 @@ In order to clone this project with to run locally (with a link to Database), pl
 
 .env.development  
 ,where this file will contain text:  
-PGDATABASE=nc_news
+PGDATABASE=nc_news_test
 
 and a second file:
 .env.test  
 with the text:  
-PGDATABASE=nc_test
+PGDATABASE=nc_news
