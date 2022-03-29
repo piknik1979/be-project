@@ -18,7 +18,6 @@ describe("1. GET /api/topics", () => {
       .expect(200)
       .then(({ body }) => {
         const { topics } = body;
-        // console.log(topics);
         expect(topics).toBeInstanceOf(Array);
         expect(topics).toHaveLength(3);
         topics.forEach((topic) => {
@@ -66,16 +65,38 @@ describe("GET /api/articles/:article_id", () => {
         expect(body.msg).toBe(`Bad request`);
       });
   });
+  describe("PATCH /api/articles/:article_id", () => {
+    test("200: responds with updated article object", () => {
+      const updates = { inc_votes: 10 };
+      return request(app)
+        .patch("/api/articles/6")
+        .send(updates)
+        .expect(200)
+        .then(({ body }) => {
+          const { article } = body;
+          expect(article).toEqual({
+            article_id: 6,
+            title: "A",
+            topic: "mitch",
+            author: "icellusedkars",
+            body: "Delicious tin of cat food",
+            created_at: "2020-10-18T01:00:00.000Z",
+            votes: 10,
+          });
+        });
+    });
+
+    test("status: 400 response with a bad request message when invalid property data inputted", () => {
+      const input = {
+        surname: "Lewangoalski",
+      };
+      return request(app)
+        .patch("/api/articles/6")
+        .send(input)
+        .expect(400)
+        .then((res) => {
+          expect(res.body).toMatchObject({ message: "Bad request" });
+        });
+    });
+  });
 });
-// Responds with:
-
-// an article object, which should have the following properties:
-
-// author which is the username from the users table
-// title
-// article_id
-// body
-// topic
-// created_at
-// votes
-// Errors to Conside
