@@ -58,6 +58,14 @@ describe("GET /api/articles/:article_id", () => {
         });
       });
   });
+  test("400, error responds when the votes is not an integer", () => {
+    return request(app)
+      .get("/api/articles/wrongggg")
+      .expect(400)
+      .then(({ body }) => {
+        expect(body.msg).toBe(`Bad request`);
+      });
+  });
 });
 // Responds with:
 
@@ -71,12 +79,3 @@ describe("GET /api/articles/:article_id", () => {
 // created_at
 // votes
 // Errors to Conside
-
-// test("400, when article ID is not an integer", () => {
-//   return request(app)
-//     .get("/api/articles/notAnID")
-//     .expect(400)
-//     .then(({ body }) => {
-//       expect(body.msg).toBe(`Bad request`);
-//     });
-// });
