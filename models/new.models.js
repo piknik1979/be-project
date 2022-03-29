@@ -20,7 +20,7 @@ exports.updateArticle = (article_id, inc_votes) => {
                 WHERE article_id = $1
                 RETURNING *;`;
   if (inc_votes === undefined) {
-    return Promise.reject({ message: "Bad request", status: 400 });
+    return Promise.reject({ message: "Invalid request", status: 400 });
   }
   return db.query(q, [article_id, inc_votes]).then((result) => {
     return result.rows[0];

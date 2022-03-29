@@ -19,7 +19,7 @@ app.all("/*", (req, res) => {
 app.use((err, req, res, next) => {
   const wrongReqCodes = ["22P02"];
   if (wrongReqCodes.includes(err.code)) {
-    res.status(400).send({ msg: "Bad request" });
+    res.status(400).send({ msg: "Invalid request" });
   } else {
     next(err);
   }

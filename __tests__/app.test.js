@@ -62,7 +62,7 @@ describe("GET /api/articles/:article_id", () => {
       .get("/api/articles/wrongggg")
       .expect(400)
       .then(({ body }) => {
-        expect(body.msg).toBe(`Bad request`);
+        expect(body.msg).toBe(`Invalid request`);
       });
   });
   describe("PATCH /api/articles/:article_id", () => {
@@ -86,6 +86,26 @@ describe("GET /api/articles/:article_id", () => {
         });
     });
 
+    test("200: responds with updated article object if number of votes is negative", () => {
+      const updates = { inc_votes: -10 };
+      return request(app)
+        .patch("/api/articles/6")
+        .send(updates)
+        .expect(200)
+        .then(({ body }) => {
+          const { article } = body;
+          expect(article).toEqual({
+            article_id: 6,
+            title: "A",
+            topic: "mitch",
+            author: "icellusedkars",
+            body: "Delicious tin of cat food",
+            created_at: "2020-10-18T01:00:00.000Z",
+            votes: -10,
+          });
+        });
+    });
+
     test("status: 400 response with a bad request message when invalid property data inputted", () => {
       const input = {
         surname: "Lewangoalski",
@@ -95,7 +115,7 @@ describe("GET /api/articles/:article_id", () => {
         .send(input)
         .expect(400)
         .then((res) => {
-          expect(res.body).toMatchObject({ message: "Bad request" });
+          expect(res.body).toMatchObject({ message: "Invalid request" });
         });
     });
   });
