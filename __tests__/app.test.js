@@ -18,6 +18,7 @@ describe("1. GET /api/topics", () => {
       .expect(200)
       .then(({ body }) => {
         const { topics } = body;
+        // console.log(topics);
         expect(topics).toBeInstanceOf(Array);
         expect(topics).toHaveLength(3);
         topics.forEach((topic) => {
@@ -39,3 +40,43 @@ describe("1. GET /api/topics", () => {
       });
   });
 });
+describe("GET /api/articles/:article_id", () => {
+  test("status:200, responds with single matching article object", () => {
+    return request(app)
+      .get("/api/articles/6")
+      .expect(200)
+      .then(({ body }) => {
+        const { article } = body;
+        expect(article).toEqual({
+          article_id: 6,
+          author: "icellusedkars",
+          body: "Delicious tin of cat food",
+          created_at: "2020-10-18T01:00:00.000Z",
+          title: "A",
+          topic: "mitch",
+          votes: 0,
+        });
+      });
+  });
+});
+// Responds with:
+
+// an article object, which should have the following properties:
+
+// author which is the username from the users table
+// title
+// article_id
+// body
+// topic
+// created_at
+// votes
+// Errors to Conside
+
+// test("400, when article ID is not an integer", () => {
+//   return request(app)
+//     .get("/api/articles/notAnID")
+//     .expect(400)
+//     .then(({ body }) => {
+//       expect(body.msg).toBe(`Bad request`);
+//     });
+// });
