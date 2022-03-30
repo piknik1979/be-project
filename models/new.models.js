@@ -23,7 +23,6 @@ exports.updateArticle = (article_id, inc_votes) => {
     return Promise.reject({ msg: "Invalid request", status: 400 });
   }
   return db.query(q, [article_id, inc_votes]).then((result) => {
-    console.log(result.rows.length);
     if (result.rows.length === 0) {
       return Promise.reject({
         status: 404,

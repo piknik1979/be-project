@@ -132,10 +132,22 @@ describe("GET /api/articles/:article_id", () => {
     });
     test("status: 400 response with the message Invalid request if the wrong data type inputted ", () => {
       const input = {
-        article_id: "Some message",
+        inc_votes: "message",
       };
       return request(app)
-        .patch("/api/articles/6")
+        .patch("/api/articles/100")
+        .send(input)
+        .expect(400)
+        .then((res) => {
+          expect(res.body).toMatchObject({ msg: "Invalid request" });
+        });
+    });
+    test("status: 400 response with the message Invalid request if the invalid article Id ", () => {
+      const input = {
+        inc_votes: 6,
+      };
+      return request(app)
+        .patch("/api/articles/hello")
         .send(input)
         .expect(400)
         .then((res) => {
