@@ -35,7 +35,7 @@ describe("1. GET /api/topics", () => {
       .patch("/api/invalid")
       .expect(404)
       .then((res) => {
-        expect(res.body).toMatchObject({ message: "Path not found!" });
+        expect(res.body).toMatchObject({ msg: "Path not found!" });
       });
   });
 });
@@ -115,7 +115,31 @@ describe("GET /api/articles/:article_id", () => {
         .send(input)
         .expect(400)
         .then((res) => {
-          expect(res.body).toMatchObject({ message: "Invalid request" });
+          expect(res.body).toMatchObject({ msg: "Invalid request" });
+        });
+    });
+    test("status: 404 response with the message  when the article is not found", () => {
+      const input = {
+        inc_votes: 1,
+      };
+      return request(app)
+        .patch("/api/articles/100")
+        .send(input)
+        .expect(404)
+        .then((res) => {
+          expect(res.body).toMatchObject({ msg: "Article Not Found" });
+        });
+    });
+    test("status: 400 response with the message Invalid request if the wrong data type inputted ", () => {
+      const input = {
+        article_id: "Some message",
+      };
+      return request(app)
+        .patch("/api/articles/6")
+        .send(input)
+        .expect(400)
+        .then((res) => {
+          expect(res.body).toMatchObject({ msg: "Invalid request" });
         });
     });
   });

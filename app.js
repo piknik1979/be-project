@@ -14,7 +14,7 @@ app.get("/api/articles/:article_id", getArticleById);
 app.patch("/api/articles/:article_id", patchArticle);
 
 app.all("/*", (req, res) => {
-  res.status(404).send({ message: "Path not found!" });
+  res.status(404).send({ msg: "Path not found!" });
 });
 app.use((err, req, res, next) => {
   const invReqCodes = ["22P02"];
@@ -26,8 +26,8 @@ app.use((err, req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-  if (err.message && err.status) {
-    res.status(err.status).send({ message: err.message });
+  if (err.msg && err.status) {
+    res.status(err.status).send({ msg: err.msg });
   } else {
     next(err);
   }
