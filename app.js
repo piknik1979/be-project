@@ -1,24 +1,22 @@
 const express = require("express");
 
-const { getTopics, getArticleById, getUser } = require("./controllers/news.controllers");
-
-const app = express();
 const {
   getTopics,
   getArticleById,
+  getUser,
   patchArticle,
 } = require("./controllers/news.controllers");
+
+const app = express();
 
 app.use(express.json());
 
 app.get("/api/topics", getTopics);
 app.get("/api/articles/:article_id", getArticleById);
 
-
 app.patch("/api/articles/:article_id", patchArticle);
 
 app.get("/api/users", getUser);
-
 
 app.all("/*", (req, res) => {
   res.status(404).send({ msg: "Path not found!" });
@@ -42,11 +40,11 @@ app.use((err, req, res, next) => {
 
 app.use((err, req, res, next) => {
   if (err.message && err.status) {
-    res.status(err.status).send({ message: err.message })
+    res.status(err.status).send({ message: err.message });
   } else {
-    next(err)
+    next(err);
   }
-})
+});
 
 app.use((err, req, res, next) => {
   console.log(err);

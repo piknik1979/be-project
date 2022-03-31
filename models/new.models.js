@@ -14,7 +14,6 @@ exports.selectArticleById = (article_id) => {
   });
 };
 
-
 exports.updateArticle = (article_id, inc_votes) => {
   const q = `UPDATE articles 
                 SET votes = votes + $2 
@@ -31,10 +30,10 @@ exports.updateArticle = (article_id, inc_votes) => {
       });
     }
     return result.rows[0];
-
+  });
+};
 exports.selectUser = () => {
   return db.query("SELECT * FROM users").then((result) => {
     return result.rows;
-
   });
 };

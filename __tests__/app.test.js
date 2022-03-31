@@ -158,7 +158,6 @@ describe("GET /api/articles/:article_id", () => {
   });
 });
 
-});
 describe("GET /api/users", () => {
   test("status:200, responds with an array of user objects, they will have username property", () => {
     return request(app)
