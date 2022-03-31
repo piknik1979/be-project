@@ -40,7 +40,7 @@ describe("1. GET /api/topics", () => {
   });
 });
 describe("GET /api/articles/:article_id", () => {
-  test("status:200, responds with single matching article object", () => {
+  test.only("status:200, responds with single matching article object", () => {
     return request(app)
       .get("/api/articles/6")
       .expect(200)
@@ -54,6 +54,7 @@ describe("GET /api/articles/:article_id", () => {
           title: "A",
           topic: "mitch",
           votes: 0,
+          comment_count: 1,
         });
       });
   });
