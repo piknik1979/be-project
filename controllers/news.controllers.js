@@ -4,8 +4,8 @@ const {
   selectArticleById,
   commentsByArticle,
   updateArticle,
-
   selectUser,
+  selectArticles,
 } = require("../models/new.models");
 
 exports.getTopics = (req, res) => {
@@ -44,4 +44,12 @@ exports.getUser = (req, res) => {
   selectUser().then((users) => {
     res.status(200).send({ users });
   });
+};
+
+exports.getArticles = (req, res, next) => {
+  selectArticles()
+    .then((articles) => {
+      res.status(200).send({ articles });
+    })
+    .catch(next);
 };
