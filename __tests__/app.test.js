@@ -18,7 +18,6 @@ describe("1. GET /api/topics", () => {
       .expect(200)
       .then(({ body }) => {
         const { topics } = body;
-        // console.log(topics);
         expect(topics).toBeInstanceOf(Array);
         expect(topics).toHaveLength(3);
         topics.forEach((topic) => {
@@ -36,7 +35,7 @@ describe("1. GET /api/topics", () => {
       .patch("/api/invalid")
       .expect(404)
       .then((res) => {
-        expect(res.body).toMatchObject({ message: "Path not found!" });
+        expect(res.body).toMatchObject({ msg: "Path not found!" });
       });
   });
 });
@@ -63,9 +62,102 @@ describe("GET /api/articles/:article_id", () => {
       .get("/api/articles/wrongggg")
       .expect(400)
       .then(({ body }) => {
-        expect(body.msg).toBe(`Bad request`);
+        expect(body.msg).toBe(`Invalid request`);
       });
   });
+
+  describe("PATCH /api/articles/:article_id", () => {
+    test("200: responds with updated article object", () => {
+      const updates = { inc_votes: 10 };
+      return request(app)
+        .patch("/api/articles/6")
+        .send(updates)
+        .expect(200)
+        .then(({ body }) => {
+          const { article } = body;
+          expect(article).toEqual({
+            article_id: 6,
+            title: "A",
+            topic: "mitch",
+            author: "icellusedkars",
+            body: "Delicious tin of cat food",
+            created_at: "2020-10-18T01:00:00.000Z",
+            votes: 10,
+          });
+        });
+    });
+
+    test("200: responds with updated article object if number of votes is negative", () => {
+      const updates = { inc_votes: -10 };
+      return request(app)
+        .patch("/api/articles/6")
+        .send(updates)
+        .expect(200)
+        .then(({ body }) => {
+          const { article } = body;
+          expect(article).toEqual({
+            article_id: 6,
+            title: "A",
+            topic: "mitch",
+            author: "icellusedkars",
+            body: "Delicious tin of cat food",
+            created_at: "2020-10-18T01:00:00.000Z",
+            votes: -10,
+          });
+        });
+    });
+
+    test("status: 400 response with a bad request message when invalid property data inputted", () => {
+      const input = {
+        surname: "Lewangoalski",
+      };
+      return request(app)
+        .patch("/api/articles/6")
+        .send(input)
+        .expect(400)
+        .then((res) => {
+          expect(res.body).toMatchObject({ msg: "Invalid request" });
+        });
+    });
+    test("status: 404 response with the message  when the article is not found", () => {
+      const input = {
+        inc_votes: 1,
+      };
+      return request(app)
+        .patch("/api/articles/100")
+        .send(input)
+        .expect(404)
+        .then((res) => {
+          expect(res.body).toMatchObject({ msg: "Article Not Found" });
+        });
+    });
+    test("status: 400 response with the message Invalid request if the wrong data type inputted ", () => {
+      const input = {
+        inc_votes: "message",
+      };
+      return request(app)
+        .patch("/api/articles/100")
+        .send(input)
+        .expect(400)
+        .then((res) => {
+          expect(res.body).toMatchObject({ msg: "Invalid request" });
+        });
+    });
+    test("status: 400 response with the message Invalid request if the invalid article Id ", () => {
+      const input = {
+        inc_votes: 6,
+      };
+      return request(app)
+        .patch("/api/articles/hello")
+        .send(input)
+        .expect(400)
+        .then((res) => {
+          expect(res.body).toMatchObject({ msg: "Invalid request" });
+        });
+    });
+  });
+});
+
 });
 describe("GET /api/users", () => {
   test("status:200, responds with an array of user objects, they will have username property", () => {
