@@ -58,6 +58,15 @@ describe("GET /api/articles/:article_id", () => {
         });
       });
   });
+  test.only("status:200, matching article object with comment_count", () => {
+    return request(app)
+      .get("/api/articles/3")
+      .expect(200)
+      .then(({ body }) => {
+        const { count } = body;
+        expect(Number(count)).toBe(2);
+      });
+  });
   test("400, error responds when the votes is not an integer", () => {
     return request(app)
       .get("/api/articles/wrongggg")
@@ -178,7 +187,3 @@ describe("GET /api/users", () => {
       });
   });
 });
-// Responds with:
-
-// an array of objects, each object should have the following property:
-// username

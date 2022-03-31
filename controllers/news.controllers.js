@@ -16,11 +16,8 @@ exports.getTopics = (req, res) => {
 
 exports.getArticleById = (req, res, next) => {
   const { article_id } = req.params;
-  const promises = [
-    selectArticleById(article_id),
-    commentsByArticle(article_id),
-  ];
-  Promise.all(promises)
+
+  Promise.all([selectArticleById(article_id), commentsByArticle(article_id)])
     .then((results) => {
       const article = results[0];
       const { count } = results[1];
