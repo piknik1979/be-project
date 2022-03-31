@@ -40,7 +40,7 @@ describe("1. GET /api/topics", () => {
   });
 });
 describe("GET /api/articles/:article_id", () => {
-  test.only("status:200, responds with single matching article object", () => {
+  test("status:200, responds with single matching article object", () => {
     return request(app)
       .get("/api/articles/6")
       .expect(200)
