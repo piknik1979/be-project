@@ -65,6 +65,7 @@ describe("GET /api/articles/:article_id", () => {
         expect(body.msg).toBe(`Invalid request`);
       });
   });
+
   describe("PATCH /api/articles/:article_id", () => {
     test("200: responds with updated article object", () => {
       const updates = { inc_votes: 10 };
@@ -156,3 +157,28 @@ describe("GET /api/articles/:article_id", () => {
     });
   });
 });
+
+});
+describe("GET /api/users", () => {
+  test("status:200, responds with an array of user objects, they will have username property", () => {
+    return request(app)
+      .get("/api/users")
+      .expect(200)
+      .then(({ body }) => {
+        const { users } = body;
+        expect(users).toBeInstanceOf(Array);
+        expect(users).toHaveLength(4);
+        users.forEach((user) => {
+          expect(user).toEqual(
+            expect.objectContaining({
+              username: expect.any(String),
+            })
+          );
+        });
+      });
+  });
+});
+// Responds with:
+
+// an array of objects, each object should have the following property:
+// username
