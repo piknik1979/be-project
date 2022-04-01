@@ -40,7 +40,7 @@ describe("1. GET /api/topics", () => {
   });
 });
 describe("GET /api/articles/:article_id", () => {
-  test("status:200, responds with single matching article object", () => {
+  test.only("status:200, responds with single matching article object", () => {
     return request(app)
       .get("/api/articles/6")
       .expect(200)
@@ -54,19 +54,11 @@ describe("GET /api/articles/:article_id", () => {
           title: "A",
           topic: "mitch",
           votes: 0,
-          comment_count: 1,
+          comment_count: "1",
         });
       });
   });
-  test.only("status:200, matching article object with comment_count", () => {
-    return request(app)
-      .get("/api/articles/3")
-      .expect(200)
-      .then(({ body }) => {
-        const { count } = body;
-        expect(Number(count)).toBe(2);
-      });
-  });
+
   test("400, error responds when the votes is not an integer", () => {
     return request(app)
       .get("/api/articles/wrongggg")
@@ -187,3 +179,16 @@ describe("GET /api/users", () => {
       });
   });
 });
+
+exports.selectArticles = () => {
+  let queryStr = `SELECT articles.*, 
+    COUNT(comments.comment_id) AS comment_count FROM articles
+    LEFT JOIN comments
+    ON comments.article_id = articles.article_id
+    GROUP BY articles.article_id
+    ORDER BY created_at DESC;`;
+
+  return db.query(queryStr).then((result) => {
+    return result.rows;
+  });
+};

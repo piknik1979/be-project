@@ -2,7 +2,6 @@ const comments = require("../db/data/test-data/comments");
 const {
   selectTopics,
   selectArticleById,
-  commentsByArticle,
   updateArticle,
   selectUser,
   selectArticles,
@@ -16,13 +15,9 @@ exports.getTopics = (req, res) => {
 
 exports.getArticleById = (req, res, next) => {
   const { article_id } = req.params;
-
-  Promise.all([selectArticleById(article_id), commentsByArticle(article_id)])
-    .then((results) => {
-      const article = results[0];
-      const { count } = results[1];
-      article.comment_count = Number(count);
-      res.status(200).send({ article, count });
+  selectArticleById(article_id)
+    .then((article) => {
+      res.status(200).send({ article });
     })
     .catch(next);
 };

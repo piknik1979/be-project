@@ -40,14 +40,6 @@ app.use((err, req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-  if (err.message && err.status) {
-    res.status(err.status).send({ message: err.message });
-  } else {
-    next(err);
-  }
-});
-
-app.use((err, req, res, next) => {
   console.log(err);
   res.sendStatus(500);
 });
