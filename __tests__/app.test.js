@@ -54,9 +54,11 @@ describe("GET /api/articles/:article_id", () => {
           title: "A",
           topic: "mitch",
           votes: 0,
+          comment_count: "1",
         });
       });
   });
+
   test("400, error responds when the votes is not an integer", () => {
     return request(app)
       .get("/api/articles/wrongggg")
@@ -177,7 +179,3 @@ describe("GET /api/users", () => {
       });
   });
 });
-// Responds with:
-
-// an array of objects, each object should have the following property:
-// username

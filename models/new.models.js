@@ -7,13 +7,27 @@ exports.selectTopics = () => {
 };
 
 exports.selectArticleById = (article_id) => {
-  const text = `SELECT * FROM articles WHERE article_id = $1;`;
-  const values = [article_id];
-  return db.query(text, values).then((result) => {
-    return result.rows[0];
-  });
+  return db
+    .query(
+      "SELECT articles.*, COUNT(comments.comment_id) AS comment_count FROM articles \
+    LEFT JOIN comments \
+    ON comments.article_id = articles.article_id \
+    WHERE articles.article_id = $1 \
+    GROUP BY articles.article_id;",
+      [article_id]
+    )
+    .then((result) => {
+      if (result.rows.length === 0) {
+        return Promise.reject({
+          status: 404,
+          msg: `Article ${article_id} does not exist`,
+        });
+      }
+      return result.rows[0];
+    });
 };
 
+// join commentsByArticle with selectArticleById
 exports.updateArticle = (article_id, inc_votes) => {
   const q = `UPDATE articles 
                 SET votes = votes + $2 
@@ -34,6 +48,19 @@ exports.updateArticle = (article_id, inc_votes) => {
 };
 exports.selectUser = () => {
   return db.query("SELECT * FROM users").then((result) => {
+    return result.rows;
+  });
+};
+
+exports.selectArticles = () => {
+  let queryStr = `SELECT articles.*, 
+    COUNT(comments.comment_id) AS comment_count FROM articles
+    LEFT JOIN comments
+    ON comments.article_id = articles.article_id
+    GROUP BY articles.article_id
+    ORDER BY created_at DESC;`;
+
+  return db.query(queryStr).then((result) => {
     return result.rows;
   });
 };
