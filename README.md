@@ -8,7 +8,7 @@ Existing users are able to post articles on given topics, as well as to join dis
 
 PLEASE NOTE THIS PROJECT IS STILL A WORK IN PROGRESS
 
-### ✔️ 1. CLONE THE REPO LOCALLY
+### CLONE THE REPO LOCALLY
 
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 
@@ -18,7 +18,7 @@ $ cd be-project
 $ code .
 ```
 
-### ✔️ INSTALL ALL REQUIRED DEPENDENCIES
+### INSTALL ALL REQUIRED DEPENDENCIES
 
 ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
 
@@ -26,11 +26,11 @@ $ code .
 $ npm install
 ```
 
-### ✔️ USAGE
+### USAGE
 
 ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white) ![Expo](https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37)
 
-### ✔️ RUNNING THE PROJECT LOCALLY
+### RUNNING THE PROJECT LOCALLY
 
 In order to run this project locally (with a link to Database), please make two -env files in the root folder:
 
@@ -45,32 +45,31 @@ and a second file:
 with the text:  
 PGDATABASE=nc_news_test
 
-### ✔️ 4. SEED THE LOCAL DATABASE
+### SEED THE LOCAL DATABASE
 
 ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white
 
-### ✔️ 5. RUN TESTS
+### RUN TESTS
 
-![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
+![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white
 
 Tests can be run with the following:
 
 $ npm t
 
-or
+|or|
 
 $ npm test
 
 ### ✔️ 6. USAGE
 
-NPM Insomnia
+![Insomnia](https://img.shields.io/badge/Insomnia-black?style=for-the-badge&logo=insomnia&logoColor=5849BE)
 
 Start the server listening with:
 
 npm start
 
 You can use a regular browser to make requests, or install a free framework for testing RESTful applications such as Insomnia
-![Insomnia](https://img.shields.io/badge/Insomnia-black?style=for-the-badge&logo=insomnia&logoColor=5849BE)
 
 Node.js
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
@@ -79,7 +78,7 @@ https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgres
 
 ###
 
-This project was made with us
+This project was made with use
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
 on the
