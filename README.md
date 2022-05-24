@@ -1,13 +1,5 @@
 # Piknik News API
 
-###
-
-This project was made using
-![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-
-on the
-![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white) Linux Ubuntu System.
-
 Designed to act as a backend news service, this API is intended to serve the data for a future frontend project, the culmination of which will be a fully functioning website.
 
 Existing users are able to post articles on given topics, as well as to join discussions by commenting on them. A 'vote' feature is enabled for users to quickly respond to articles they liked or disliked. Further functionality is planned, including creating new users and topics, voting on comments, and more!
@@ -78,8 +70,17 @@ Start the server listening with:
 npm start
 
 You can use a regular browser to make requests, or install a free framework for testing RESTful applications such as Insomnia
+![Insomnia](https://img.shields.io/badge/Insomnia-black?style=for-the-badge&logo=insomnia&logoColor=5849BE)
 
 Node.js
-
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 and Postgres
 https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white
+
+###
+
+This project was made with us
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+
+on the
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white) Linux Ubuntu System.
