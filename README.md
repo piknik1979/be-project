@@ -10,7 +10,7 @@ PLEASE NOTE THIS PROJECT IS STILL A WORK IN PROGRESS
 
 ### CLONE THE REPO LOCALLY
 
-![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white
 
 ```
 $ git clone https://github.com/piknik1979/be-project
@@ -20,7 +20,7 @@ $ code .
 
 ### INSTALL ALL REQUIRED DEPENDENCIES
 
-![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
+![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white
 
 ```
 $ npm install
