@@ -2,12 +2,15 @@
 
 ###
 
+This project was made using Visual Studio Code on the Linux Ubuntu System.
+
 Designed to act as a backend news service, this API is intended to serve the data for a future frontend project, the culmination of which will be a fully functioning website.
 
 Existing users are able to post articles on given topics, as well as to join discussions by commenting on them. A 'vote' feature is enabled for users to quickly respond to articles they liked or disliked. Further functionality is planned, including creating new users and topics, voting on comments, and more!
 
-###
-            CREATING A LOCAL COPY OF THE PROJECT
+## CREATING A LOCAL COPY OF THE PROJECT
+
+PLEASE NOTE THIS PROJECT IS STILL A WORK IN PROGRESS
 
 ### ✔️ 1. CLONE THE REPO LOCALLY
 
@@ -48,16 +51,17 @@ PGDATABASE=nc_news_test
 
 ### ✔️ 4. SEED THE LOCAL DATABASE
 
-![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white) ![Expo](https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37)
+![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white
 
 ### ✔️ 5. RUN TESTS
 
-![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white) ![Expo](https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37)
+![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
 
 Tests can be run with the following:
 
 $ npm t
-OR
+
+or
 
 $ npm test
 
