@@ -2,10 +2,11 @@
 
 ###
 
-This project was made using Visual Studio Code
+This project was made using
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-on the Linux Ubuntu System.
-![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+
+on the
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white) Linux Ubuntu System.
 
 Designed to act as a backend news service, this API is intended to serve the data for a future frontend project, the culmination of which will be a fully functioning website.
 
