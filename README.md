@@ -2,7 +2,10 @@
 
 ###
 
-This project was made using Visual Studio Code on the Linux Ubuntu System.
+This project was made using Visual Studio Code
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+on the Linux Ubuntu System.
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 
 Designed to act as a backend news service, this API is intended to serve the data for a future frontend project, the culmination of which will be a fully functioning website.
 
@@ -75,4 +78,7 @@ npm start
 
 You can use a regular browser to make requests, or install a free framework for testing RESTful applications such as Insomnia
 
-Node.js and Postgres
+Node.js
+
+and Postgres
+https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white
