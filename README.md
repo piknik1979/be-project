@@ -1,14 +1,79 @@
-# Northcoders News API
+# Piknik News API
 
-## Cloning the project locally
+###
 
-In order to clone this project with to run locally (with a link to Database), please make two -env files in the root folder:
+Designed to act as a backend news service, this API is intended to serve the data for a future frontend project, the culmination of which will be a fully functioning website.
+
+Existing users are able to post articles on given topics, as well as to join discussions by commenting on them. A 'vote' feature is enabled for users to quickly respond to articles they liked or disliked. Further functionality is planned, including creating new users and topics, voting on comments, and more!
+
+![Project Logo](https://github.com/yuridevweb/maximal-murdle/blob/main/assets/murdle-logo.png)
+
+###
+
+            CREATING A LOCAL COPY OF THE PROJECT
+
+### ✔️ 1. CLONE THE REPO LOCALLY
+
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+
+```
+$ git clone https://github.com/piknik1979/be-project
+$ cd be-project
+$ code .
+```
+
+### ✔️ INSTALL ALL REQUIRED DEPENDENCIES
+
+![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
+
+```
+$ npm install
+```
+
+### ✔️ USAGE
+
+![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white) ![Expo](https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37)
+
+### ✔️ RUNNING THE PROJECT LOCALLY 
+
+In order to run this project locally (with a link to Database), please make two -env files in the root folder:
 
 .env.development  
-,where this file will contain text:  
+
+where this file will contain text:  
 PGDATABASE=nc_news
 
 and a second file:
 .env.test  
+
 with the text:  
 PGDATABASE=nc_news_test
+
+### ✔️ 4. SEED THE LOCAL DATABASE
+
+![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white) ![Expo](https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37)
+
+### ✔️ 5. RUN TESTS
+
+![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white) ![Expo](https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37)
+
+Tests can be run with the following:
+
+$ npm t
+OR
+
+$ npm test
+
+### ✔️ 6. USAGE
+NPM Insomnia
+
+Start the server listening with:
+
+npm start
+
+You can use a regular browser to make requests, or install a free framework for testing RESTful applications such as Insomnia
+
+Node.js and Postgres
+
+
+
