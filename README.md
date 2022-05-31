@@ -11,7 +11,7 @@ This project is the back-end component to a news website that allows posting and
 ## 1. CLONE THE REPO
 
 ```
-git clone https://github.com/piknik1979/be-project
+git clone https://github.com/piknik1979/piknik-news-api
 ```
 
 ### 2. INSTALL ALL REQUIRED NPM DEPENDENCIES
