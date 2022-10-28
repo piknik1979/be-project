@@ -52,15 +52,16 @@ exports.selectUser = () => {
   });
 };
 
-exports.selectArticles = () => {
-  let queryStr = `SELECT articles.*, 
-    COUNT(comments.comment_id) AS comment_count FROM articles
-    LEFT JOIN comments
-    ON comments.article_id = articles.article_id
+exports.selectArticles = async () => {
+  // query joins articles and comments tables on article_id, counts the number of comments matching an article_id and groups the data by this.
+  const queryStr = `SELECT articles.*,
+    CAST(COUNT(comments.comment_id) AS int) AS comment_count
+    FROM articles
+    LEFT JOIN comments ON comments.article_id = articles.article_id
     GROUP BY articles.article_id
-    ORDER BY created_at DESC;`;
+    ORDER BY articles.created_at DESC;`;
 
-  return db.query(queryStr).then((result) => {
-    return result.rows;
-  });
+  const articlesData = await db.query(queryStr);
+
+  return articlesData.rows;
 };
